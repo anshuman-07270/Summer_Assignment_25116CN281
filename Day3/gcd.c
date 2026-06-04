@@ -1,33 +1,25 @@
 #include <stdio.h>
  int main()
  {
-  int num ;
-  printf("\n ENTER A NUMBER ; ");
-  scanf("%d",&num);
-  
- if(prime(num)){
-    printf("\n%d IS A PRIME NUMBER",num);
- }
- else
- {
-    printf("\n%d IS NOT A PRIME NUMBER",num);
- }
- 
-    return 0;
- }
+  int n1 ,n2 ,gcd ;
 
-
-int prime(int num)
-{
- int i;
- for(i=2;i<num;i++)
- {
-  if(num%i!=0){
-    return 1;
-  }else 
+  printf("\n ENTER TWO NUMBERS :");
+  scanf("%d %d",&n1,&n2);
+   
+   gcd= gcdof(n1 ,n2);
+   printf("\nTHE GREATEST COMMON DIVIDER OF %d AND %d is %d",n1,n2,gcd);
+   
+   return 0;
+ }
+   
+   int gcdof(int n1,int n2)
+   {  
+   while(n2!=0)
    {
-    return 0;
-  }
- }
-    
-}
+    int temp=n2;
+    n2=n1 % n2;
+    n1=temp;
+   }
+
+    return n1;
+   }
